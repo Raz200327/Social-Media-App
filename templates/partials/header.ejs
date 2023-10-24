@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Social Media App</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="/" class="page-title">Social Media App</a></h1>
+						<nav class="links">
+							<ul>
+								<% if (!user){%>
+								<li><a href="/login">Login</a></li>
+								<li><a href="/signup">Signup</a></li>
+								<%} else{%>
+								<li><a href="/logout">Logout</a></li>
+								<li><a href="/post">Post</a></li>
+								<%}%>
+							</ul>
+						</nav>
+						<nav class="main">
+							<ul>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+				
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<% if (!user){%>
+										<li><a href="/signup">Signup</a></li>
+										<li><a href="/login">Login</a></li>
+									<%}else{%>
+									<li><a href="/logout">Logout</a></li>
+									<li><a href="/post">Post</a></li>
+									<%}%>
+								</ul>
+							</section>
+
+					</section>

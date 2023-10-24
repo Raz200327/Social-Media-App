@@ -1,0 +1,63 @@
+<%- include("./partials/header.ejs")%>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+						<% for (post of posts){%>
+							<% const user = users.find(u => u.user_id === post.user_id); %>
+							<% const postComments = comments.filter(comment => comment.post_id === post.post_id); %>
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a class="page-title"><%=post.title%></a></h2>
+		
+									</div>
+									<div class="meta">
+										<a href="#" class="author"><span class="name"><%= user ? user.name : 'Unknown User' %></span><img class="profile-img" src="https://api.dicebear.com/7.x/pixel-art/svg?seed=<%= user ? user.name : 'Unknown User' %>" alt="" /></a>
+									</div>
+								</header>
+								
+								<p><%=post.body%></p>
+								<footer>
+									<ul class="stats">
+										<li><div id="like<%=post.post_id%>" onclick="addScaleAndBounceAnimation('<%=post.post_id%>', 'like<%=post.post_id%>')"><a id="like1<%=post.post_id%>" class="icon fa-heart fa-4x"><%=post.likes%></a></div></li>
+										<li><a class="icon fa-comment fa-4x" data-post-id="<%=post.post_id%>"  onclick="showCommentBox('<%=post.post_id%>')"><%=postComments.length%></a></li>
+
+									</ul>
+									
+								</footer>
+								<div id="comment-box-<%=post.post_id%>" style="display: none;">
+									<textarea id="comment-<%=post.post_id%>" rows="4" cols="50" placeholder="Write a comment..."></textarea>
+									<button onclick="submitComment('<%=post.post_id%>', '<%=user.user_id%>')">Submit</button>
+								</div>
+								<div class="comments" id="comment-list-<%=post.post_id%>">
+									<% 
+									postComments.sort((a, b) => b.comment_id - a.comment_id);
+		
+									for(comment of postComments){%>
+										<% const commentUser = users.find(u => u.user_id === comment.user_id); %>
+										<div class="comment-overview">
+										<div class="comment-profile">
+										<img class="profile-comment" src="https://api.dicebear.com/7.x/pixel-art/svg?seed=<%=commentUser.name%>" alt="" /><p><b><%=commentUser.name%></b></p><br/>
+										<%=comment.comment_body%>
+										</div></div>
+
+										
+										
+									<%}%>
+										
+								</div>
+							</article>
+
+							<%}%>
+
+
+					</div>
+					
+
+
+
+		<!-- Scripts -->
+			
+		<%- include("./partials/footer.ejs")%>

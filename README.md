@@ -1,6 +1,6 @@
 # Social Media Web App
 
-Welcome to the GitHub repository for our Social Media Web App. This Node.js project includes features for user authentication, posting, commenting, and liking posts. The web app uses a MySQL database for data storage.
+Welcome to the GitHub repository for my Social Media Web App. This Node.js project includes features for user authentication, posting, commenting, and liking posts. The web app uses a MySQL database for data storage.
 
 You can access the web app [here](https://shepherd-lucky-notably.ngrok-free.app/).
 
